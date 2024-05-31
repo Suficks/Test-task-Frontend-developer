@@ -10,7 +10,7 @@ interface Question {
   multiple: boolean;
 };
 
-export const data: Question[] = [
+export const questions: Question[] = [
   {
     "id": 1,
     "question": "Что такое HTML?",

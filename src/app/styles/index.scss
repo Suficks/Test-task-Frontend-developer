@@ -1,21 +1,20 @@
 @import 'reset-css';
 
-a {
-  text-decoration: none;
-}
-
 body {
   min-height: 100vh;
 
   color: black;
-  font: 24px / 28px "Roboto", sans-serif;
 
   background: url('../../shared/assets/images/background.jpg') no-repeat;
   background-size: cover;
   background-position: center;
+  font-family: "Roboto", sans-serif;
+}
 
+main {
   display: flex;
   align-items: center;
+  height: 100vh;
   justify-content: center;
 }
 
@@ -23,6 +22,4 @@ input[type="checkbox"] {
   width: 20px;
   height: 20px;
   margin: 0;
-
-  cursor: pointer;
 }
