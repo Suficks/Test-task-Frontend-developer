@@ -8,7 +8,7 @@ interface CardProps {
   className?: string;
   children: ReactNode;
   centeredContent?: boolean;
-  gap?: FlexGap
+  gap?: FlexGap;
 }
 
 const gapClasses: Record<FlexGap, string> = {
@@ -18,10 +18,17 @@ const gapClasses: Record<FlexGap, string> = {
 };
 
 export const Card = (props: CardProps) => {
-  const { className, children, centeredContent, gap } = props
+  const { className, children, centeredContent, gap } = props;
   return (
-    <div className={classNames(cls.Card, { [cls.centered]: centeredContent }, gap && gapClasses[gap], className)}>
+    <div
+      className={classNames(
+        cls.Card,
+        { [cls.centered]: centeredContent },
+        gap && gapClasses[gap],
+        className,
+      )}
+    >
       {children}
     </div>
-  )
-}
+  );
+};

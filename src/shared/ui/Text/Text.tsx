@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import cls from './Text.module.scss';
 
 export type TextSize = 's' | 'm';
-export type TextStyle = 'normal' | 'italic'
+export type TextStyle = 'normal' | 'italic';
 
 type HeaderTagType = 'h1' | 'h2';
 
@@ -24,18 +24,11 @@ interface TextProps {
   text?: string;
   bold?: boolean;
   size?: TextSize;
-  style?: TextStyle
+  style?: TextStyle;
 }
 
 export const Text = memo((props: TextProps) => {
-  const {
-    className,
-    title,
-    text,
-    bold,
-    style = 'normal',
-    size = 'm',
-  } = props;
+  const { className, title, text, bold, style = 'normal', size = 'm' } = props;
 
   const HeaderTag = mapSizeToHeaderTag[size];
   const sizeClass = mapSizeToClass[size];
@@ -43,18 +36,32 @@ export const Text = memo((props: TextProps) => {
   return (
     <>
       {title && (
-        <HeaderTag className={classNames(cls.title, {
-          [cls.bold]: bold,
-          [cls.italic]: style === 'italic'
-        }, sizeClass, className)}>
+        <HeaderTag
+          className={classNames(
+            cls.title,
+            {
+              [cls.bold]: bold,
+              [cls.italic]: style === 'italic',
+            },
+            sizeClass,
+            className,
+          )}
+        >
           {title}
         </HeaderTag>
       )}
       {text && (
-        <p className={classNames(cls.text, {
-          [cls.bold]: bold,
-          [cls.italic]: style === 'italic'
-        }, sizeClass, className)}>
+        <p
+          className={classNames(
+            cls.text,
+            {
+              [cls.bold]: bold,
+              [cls.italic]: style === 'italic',
+            },
+            sizeClass,
+            className,
+          )}
+        >
           {text}
         </p>
       )}

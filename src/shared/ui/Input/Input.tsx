@@ -13,7 +13,7 @@ interface InputProps extends HTMLInputProps {
   value?: string;
   label?: string;
   onChange?: (value: string) => void;
-  name?: string
+  name?: string;
   type?: string;
 }
 
@@ -43,7 +43,7 @@ export const Input = (props: InputProps) => {
         {...otherProps}
       />
       {type === 'radio' && <span className={cls.fake} />}
-      <span className={cls.label}>{label}</span>
+      <p className={cls.label}>{label}</p>
     </label>
-  )
-}
+  );
+};
