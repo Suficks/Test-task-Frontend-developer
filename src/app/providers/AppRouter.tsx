@@ -5,7 +5,7 @@ import { GreetingPage } from "@/pages/GreetingPage";
 import { TestingPage } from "@/pages/TestingPage";
 
 enum Routes {
-  GREETING = '/greeting',
+  GREETING = '/',
   TESTING = '/testing',
 }
 

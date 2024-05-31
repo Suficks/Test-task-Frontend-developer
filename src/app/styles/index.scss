@@ -1,0 +1,16 @@
+@import 'reset-css';
+
+a {
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+
+  color: black;
+  font: 24px / 28px "Roboto", serif;
+
+  background: url('../../shared/assets/images/background.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
