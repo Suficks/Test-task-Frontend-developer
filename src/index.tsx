@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 
 import { App } from './app/App.';
 import { CorrectAnswersCounterProvider } from './app/providers/context/CorrectAnswersContext';
+import { IsTimeTestProvider } from './app/providers/context/IsTimeTest';
 
 import '@/app/styles/index.scss';
 
@@ -17,7 +18,9 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <CorrectAnswersCounterProvider>
-      <App />
+      <IsTimeTestProvider>
+        <App />
+      </IsTimeTestProvider>
     </CorrectAnswersCounterProvider>
   </React.StrictMode>,
 );

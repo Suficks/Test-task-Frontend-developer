@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useNavigate } from 'react-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Card } from '@/shared/ui/Card/Card';
 import { Answer, QuestionType, questions } from '@/shared/QuestionsData/data';
@@ -15,12 +15,15 @@ import { answerCheck } from '../model/answerCheck';
 import { useCorrectAnswersCounter } from '@/app/providers/context/CorrectAnswersContext';
 
 import cls from './TestingPage.module.scss';
+import { useIsTimeTest } from '@/app/providers/context/IsTimeTest';
+import { Timer } from '@/app/features/Timer/Timer';
 
 interface TestingPageProps {
   className?: string;
 }
 
 export const TestingPage = ({ className }: TestingPageProps) => {
+  const { isTimeTest } = useIsTimeTest();
   const savedCurrentQuestion = Number(getItemFromLocalStorage('currentQuestion'));
 
   const [currentQuestion, setCurrentQuestion] = useState(savedCurrentQuestion || 0);
@@ -87,7 +90,10 @@ export const TestingPage = ({ className }: TestingPageProps) => {
   return (
     <main className={classNames(cls.TestingPage, className)}>
       <Card className={cls.card} gap="24">
-        <Text title="Тестирование" bold />
+        <div className={cls.process}>
+          <Text title="Тестирование" bold />
+          {isTimeTest && <Timer />}
+        </div>
         <div className={cls.process}>
           {Array.from({ length: questions.length }, (_, index) => (
             <div

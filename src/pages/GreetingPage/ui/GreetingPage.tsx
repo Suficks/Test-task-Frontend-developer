@@ -6,6 +6,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
 import { Text } from '@/shared/ui/Text/Text';
+import { useIsTimeTest } from '@/app/providers/context/IsTimeTest';
 
 import cls from './GreetingPage.module.scss';
 
@@ -15,9 +16,14 @@ interface GreetingPageProps {
 
 export const GreetingPage = ({ className }: GreetingPageProps) => {
   const navigate = useNavigate();
+  const { isTimeTest, setIsTimeTest } = useIsTimeTest();
 
   const handleOnClick = useCallback(() => {
     navigate('/testing');
+  }, []);
+
+  const onInputChange = useCallback(() => {
+    setIsTimeTest(prev => !prev)
   }, []);
 
   return (
@@ -33,7 +39,13 @@ export const GreetingPage = ({ className }: GreetingPageProps) => {
           size="s"
           className={cls.subtitle}
         />
-        <Input label="Тест на время" type="checkbox" className={cls.label} />
+        <Input
+          label="Тест на время"
+          type="checkbox"
+          className={cls.label}
+          onChange={onInputChange}
+          checked={isTimeTest}
+        />
         <Button text="Начать тест!" onClick={handleOnClick} />
       </Card>
     </main>
