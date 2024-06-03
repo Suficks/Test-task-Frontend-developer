@@ -12,7 +12,7 @@ interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string;
   label?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: string, isChecked: boolean) => void;
   name?: string;
   type?: string;
 }
@@ -29,7 +29,7 @@ export const Input = (props: InputProps) => {
   } = props;
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value, e.target.checked);
   };
 
   return (

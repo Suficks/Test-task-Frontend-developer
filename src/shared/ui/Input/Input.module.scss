@@ -39,6 +39,22 @@
   }
 }
 
+input[type="text"] {
+  padding: 10px 25px;
+
+  border: none;
+  border-bottom: 3px solid grey;
+  outline: none;
+  background-color: white;
+  border-radius: 5px;
+
+  font: 24px / 28px "Roboto", sans-serif;
+
+  &:focus {
+    box-shadow:  0 5px 5px -5px rgba(0, 0, 0, 0.5);
+  }
+}
+
 input[type="checkbox"] {
   width: 20px;
   height: 20px;
