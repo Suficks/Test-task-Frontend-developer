@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router';
 
 import { questions } from '@/shared/QuestionsData/data';
 
@@ -11,10 +12,11 @@ interface TimerProps {
 
 export const Timer = ({ className }: TimerProps) => {
   const [[m, s], setTime] = useState([questions.length, 0]);
+  const navigate = useNavigate();
 
   const tick = () => {
     if (m === 0 && s === 0) {
-      return;
+      navigate('/result')
     } else if (s == 0) {
       setTime([m - 1, 59]);
     } else {
