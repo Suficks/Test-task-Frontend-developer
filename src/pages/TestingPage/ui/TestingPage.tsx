@@ -7,7 +7,7 @@ import { Text } from '@/shared/ui/Text/Text';
 import { Input } from '@/shared/ui/Input/Input';
 
 import { useIsTimeTest } from '@/app/providers/context/IsTimeTest';
-import { Timer } from '@/app/features/Timer/Timer';
+import { Timer } from '@/features/Timer/Timer';
 
 import cls from './TestingPage.module.scss';
 import { useTestingPage } from '../model/useTestingPage';
